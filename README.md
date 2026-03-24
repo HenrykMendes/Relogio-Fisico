@@ -1,7 +1,7 @@
 
 # Projeto Algoritimo de relógio físico
 
-Repositório para apresentação do trabalho de sistemas distribuidos para confecção de um algoritimo de um relógio físico.
+Repositório para apresentação do trabalho de sistemas distribuidos para confecção de um sisstema de relógio físico seguindo o algoritimo de cristian.
 
 ## Exigências
 
