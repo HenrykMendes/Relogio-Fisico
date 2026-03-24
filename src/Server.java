@@ -55,3 +55,13 @@ public class Server extends Thread {
         }
     }
 
+    public static void main(String [] args) {
+        int porta = 9092;
+        try {
+            Thread t = new Server(porta);
+            t.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
