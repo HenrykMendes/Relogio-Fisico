@@ -15,7 +15,7 @@ public class Client {
     private long tempo3; //O momento em que recebe a resposta do servidor
 
     //  Método Construtor
-    public Client(String nomeDoServidor, int portaDoServidor, Timer temporizador) {
+    public Client(String nomeDoServidor, int portaDoServidor) {
         this.nomeDoServidor = nomeDoServidor;
         this.portaDoServidor = portaDoServidor;
         this.temporizador = new Timer();
@@ -99,5 +99,33 @@ public class Client {
             }
         }
     }
+    public static void main(String [] args) {
 
+        //Nome do servidor
+        String nomeDoServidor = "Localhost";
+
+        //Porta do servidor
+        int portaDoServidor = 9092;
+
+        //Cria um cliente que vai conecar no servidor
+        Client cliente = new Client(nomeDoServidor, portaDoServidor);
+
+        //Tempo que o objeto Timer vai fazer as conexoes
+        long periodo = 6000;
+
+        //Instancia a classe Conversation
+        Client.Conversation  conversation = cliente.new Conversation();
+
+        cliente.temporizador.schedule(conversation, 0, periodo);
+    }
+
+    public String formataData(long data) {
+        Timestamp timeStamp = new Timestamp(data);
+        Date date = new Date(timeStamp.getTime());
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SSS");
+        String dataFormatada = formato.format(date);
+
+        return dataFormatada;
+    }
 }
